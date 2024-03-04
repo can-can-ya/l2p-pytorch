@@ -7,10 +7,10 @@ The official Jax implementation is <a href="https://github.com/google-research/l
 
 ## Environment
 The system I used and tested in
-- Ubuntu 20.04.4 LTS
+- Ubuntu 20.04.4 LTS ( Ubuntu 18.04.4 LTS )
 - Slurm 21.08.1
-- NVIDIA GeForce RTX 3090
-- Python 3.8
+- NVIDIA GeForce RTX 3090 ( NVIDIA GeForce RTX 3090, CUDA 11.6)
+- Python 3.8 ( Python 3.8 )
 
 ## Usage
 First, clone the repository locally:
@@ -20,11 +20,12 @@ cd l2p-pytorch
 ```
 Then, install the packages below:
 ```
-pytorch==1.12.1
+pytorch==1.12.1 ( pip install torch==1.12.1+cu116 torchvision==0.13.1+cu116 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116 )
 torchvision==0.13.1
 timm==0.6.7
 pillow==9.2.0
 matplotlib==3.5.3
+torchprofile==0.0.4
 ```
 These packages can be installed easily by 
 ```
