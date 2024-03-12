@@ -121,7 +121,7 @@ def get_dataset(dataset, transform_train, transform_val, args,):
     
     elif dataset == 'SVHN':
         dataset_train = SVHN(args.data_path, split='train', download=True, transform=transform_train)
-        dataset_val = SVHN(args.data_path, split='test', download=True, transform=transform_val)
+        dataset_val = SVHN(args.data_path, split='test2', download=True, transform=transform_val)
     
     elif dataset == 'NotMNIST':
         dataset_train = NotMNIST(args.data_path, train=True, download=True, transform=transform_train)
@@ -129,11 +129,11 @@ def get_dataset(dataset, transform_train, transform_val, args,):
     
     elif dataset == 'Flower102':
         dataset_train = Flowers102(args.data_path, split='train', download=True, transform=transform_train)
-        dataset_val = Flowers102(args.data_path, split='test', download=True, transform=transform_val)
+        dataset_val = Flowers102(args.data_path, split='test2', download=True, transform=transform_val)
     
     elif dataset == 'Cars196':
         dataset_train = StanfordCars(args.data_path, split='train', download=True, transform=transform_train)
-        dataset_val = StanfordCars(args.data_path, split='test', download=True, transform=transform_val)
+        dataset_val = StanfordCars(args.data_path, split='test2', download=True, transform=transform_val)
         
     elif dataset == 'CUB200':
         dataset_train = CUB200(args.data_path, train=True, download=True, transform=transform_train).data

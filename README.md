@@ -63,7 +63,7 @@ python -m torch.distributed.launch \
         <cifar100_l2p or five_datasets_l2p> \
         --model vit_base_patch16_224 \
         --batch-size 16 \
-        --data-path /local_datasets/ \
+        --data-path ./local_datasets \
         --output_dir ./output 
 ```
 
@@ -75,7 +75,7 @@ python -m torch.distributed.launch \
         <cifar100_l2p or five_datasets_l2p> \
         --model vit_base_patch16_224 \
         --batch-size 16 \
-        --data-path /local_datasets/ \
+        --data-path ./local_datasets \
         --output_dir ./output 
 ```
 

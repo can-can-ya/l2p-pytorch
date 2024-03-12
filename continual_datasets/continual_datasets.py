@@ -32,7 +32,7 @@ class MNIST_RGB(datasets.MNIST):
 
     def __init__(self, root, train=True, transform=None, target_transform=None, download=False):
         super(MNIST_RGB, self).__init__(root, transform=transform, target_transform=target_transform, download=download)
-        self.train = train  # training set or test set
+        self.train = train  # training set or test2 set
 
         if self._check_legacy_exist():
             self.data, self.targets = self._load_legacy_data()
@@ -268,7 +268,7 @@ class SVHN(datasets.SVHN):
 class Flowers102(datasets.Flowers102):
     def __init__(self, root, split='train', transform=None, target_transform=None, download=False):
         super(Flowers102, self).__init__(root, transform=transform, target_transform=target_transform, download=download)
-        self._split = verify_str_arg(split, "split", ("train", "val", "test"))
+        self._split = verify_str_arg(split, "split", ("train", "val", "test2"))
         self._base_folder = Path(self.root) / "flowers-102"
         self._images_folder = self._base_folder / "jpg"
 
@@ -342,7 +342,7 @@ class StanfordCars(datasets.StanfordCars):
 
         super(StanfordCars, self).__init__(root, transform=transform, target_transform=target_transform, download=download)
 
-        self._split = verify_str_arg(split, "split", ("train", "test"))
+        self._split = verify_str_arg(split, "split", ("train", "test2"))
         self._base_folder = pathlib.Path(root) / "stanford_cars"
         devkit = self._base_folder / "devkit"
 
@@ -452,13 +452,13 @@ class CUB200(torch.utils.data.Dataset):
             fpath = os.path.join(root, 'CUB_200_2011', 'train')
 
         else:
-            fpath = os.path.join(root, 'CUB_200_2011', 'test')
+            fpath = os.path.join(root, 'CUB_200_2011', 'test2')
 
         self.data = datasets.ImageFolder(fpath, transform=transform)
 
     def split(self):
         train_folder = self.root + 'CUB_200_2011/train'
-        test_folder = self.root + 'CUB_200_2011/test'
+        test_folder = self.root + 'CUB_200_2011/test2'
 
         if os.path.exists(train_folder):
             rmtree(train_folder)
@@ -519,12 +519,12 @@ class TinyImagenet(torch.utils.data.Dataset):
             fpath = root + 'tiny-imagenet-200/train'
 
         else:
-            fpath = root + 'tiny-imagenet-200/test'
+            fpath = root + 'tiny-imagenet-200/test2'
         
         self.data = datasets.ImageFolder(fpath, transform=transform)
 
     def split(self):
-        test_folder = self.root + 'tiny-imagenet-200/test'
+        test_folder = self.root + 'tiny-imagenet-200/test2'
 
         if os.path.exists(test_folder):
             rmtree(test_folder)
@@ -593,15 +593,15 @@ class Scene67(torch.utils.data.Dataset):
             fpath = os.path.join(root, 'Scene67', 'train')
 
         else:
-            fpath = os.path.join(root, 'Scene67', 'test')
+            fpath = os.path.join(root, 'Scene67', 'test2')
 
         self.data = datasets.ImageFolder(fpath, transform=transform)
 
     def split(self):
         if not os.path.exists(os.path.join(self.root, 'Scene67', 'train')):
             os.mkdir(os.path.join(self.root, 'Scene67', 'train'))
-        if not os.path.exists(os.path.join(self.root, 'Scene67', 'test')):
-            os.mkdir(os.path.join(self.root, 'Scene67', 'test'))
+        if not os.path.exists(os.path.join(self.root, 'Scene67', 'test2')):
+            os.mkdir(os.path.join(self.root, 'Scene67', 'test2'))
         
         train_annos_file = os.path.join(self.root, self.train_annos_fname)
         test_annos_file = os.path.join(self.root, self.test_annos_fname)
@@ -619,9 +619,9 @@ class Scene67(torch.utils.data.Dataset):
             for line in f.readlines():
                 line = line.replace('\n', '')
                 src = self.root + 'Scene67/' + 'Images/' + line
-                dst = self.root + 'Scene67/' + 'test/' + line
-                if not os.path.exists(os.path.join(self.root, 'Scene67', 'test', line.split('/')[0])):
-                   os.mkdir(os.path.join(self.root, 'Scene67', 'test', line.split('/')[0]))
+                dst = self.root + 'Scene67/' + 'test2/' + line
+                if not os.path.exists(os.path.join(self.root, 'Scene67', 'test2', line.split('/')[0])):
+                   os.mkdir(os.path.join(self.root, 'Scene67', 'test2', line.split('/')[0]))
                 move(src, dst)
 
 class Imagenet_R(torch.utils.data.Dataset):
@@ -648,7 +648,7 @@ class Imagenet_R(torch.utils.data.Dataset):
             tar_ref.extractall(root)
             tar_ref.close()
         
-        if not os.path.exists(self.fpath + '/train') and not os.path.exists(self.fpath + '/test'):
+        if not os.path.exists(self.fpath + '/train') and not os.path.exists(self.fpath + '/test2'):
             self.dataset = datasets.ImageFolder(self.fpath, transform=transform)
             
             train_size = int(0.8 * len(self.dataset))
@@ -666,13 +666,13 @@ class Imagenet_R(torch.utils.data.Dataset):
             fpath = self.fpath + '/train'
 
         else:
-            fpath = self.fpath + '/test'
+            fpath = self.fpath + '/test2'
 
         self.data = datasets.ImageFolder(fpath, transform=transform)
 
     def split(self):
         train_folder = self.fpath + '/train'
-        test_folder = self.fpath + '/test'
+        test_folder = self.fpath + '/test2'
 
         if os.path.exists(train_folder):
             rmtree(train_folder)

@@ -35,7 +35,7 @@ def parse_args():
         raise NotImplementedError
 
     config_parser.add_argument("--shared_folder", type=str, default="", help="Absolute Path of shared folder for all nodes, it must be accessible from all nodes")
-    config_parser.add_argument("--job_name", type=str, default="test", help="Job name")
+    config_parser.add_argument("--job_name", type=str, default="test2", help="Job name")
     config_parser.add_argument("--nodes", default=2, type=int, help="Number of nodes to request")
     config_parser.add_argument("--timeout", default=2800, type=int, help="Duration of the job")
     config_parser.add_argument("--job_dir", default="", type=str, help="Job dir. Leave empty for automatic.")

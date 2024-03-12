@@ -22,7 +22,7 @@ class Prompt(nn.Module):
                 self.prompt = nn.Parameter(torch.zeros(prompt_pool_shape))
             elif prompt_init == 'uniform':
                 self.prompt = nn.Parameter(torch.randn(prompt_pool_shape))
-                nn.init.uniform_(self.prompt, -1, 1)
+                nn.init.uniform_(self.prompt, -1, 1) # Initialized to a uniform random number between -1 and 1.
         
         # if using learnable prompt keys
         if prompt_key:
